@@ -1,0 +1,24 @@
+<div class="modal" tabindex="-1" role="dialog" [class.show]="modalVisible" style="display: block;">
+  <div class="modal-dialog modal-custom-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Calculo de costo de transacción</h5> 
+        <div class="boton-salir-recovered text-center"> 
+          <span  (click)="closeModal()">&times;</span>
+        </div>
+      </div>
+      
+      <ng-scrollbar  style="height: calc(100vh - 217px)">  
+        <div class="modal-body">
+          <app-liquidacion-formulario
+            [usingModal]="true"
+          ></app-liquidacion-formulario>
+        </div>
+      </ng-scrollbar> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="submit()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

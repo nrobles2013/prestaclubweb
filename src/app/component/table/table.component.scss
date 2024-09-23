@@ -1,0 +1,90 @@
+.table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+
+    .table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        th,
+        td {
+            border: none;
+            padding: 5px;
+            text-align: left;
+            background-color: #E9ECEF;
+            padding: 10px 15px;
+        }
+    
+        th {
+            background-color: var(--bs-primary);
+            color: var(--bs-white);
+            padding: 10px 15px;
+        }
+    
+        th:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+    
+        //el ultimo th dentro de thead quier que tenga bordes
+        th:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+    
+        td:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+    
+        //el ultimo th dentro de thead quier que tenga bordes
+        td:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        td.body-custom {
+          height: 150px !important;
+          border-radius: 10px 10px 10px 10px !important;
+        }
+    } 
+    .pagination {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 1rem;
+        button {
+            margin: 0 0.5rem;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--bs-primary) !important;
+            border: 2px solid var(--bs-primary) !important;
+            background-color: var(--bs-white) ;
+            // background-color: #007bff;
+            // color: white;
+            cursor: pointer;
+            font-size: 14px;
+          
+            &:disabled {
+              border:2px solid  #ccc !important;
+              color: #ccc !important;
+              cursor: not-allowed;
+              &.no-button {
+                border:none !important;
+                color: #000 !important;
+                cursor: auto;
+              }
+            }
+          
+            &.active {
+              background-color: var(--bs-primary);
+              color: var(--bs-white) !important;
+            }
+          }
+
+
+      }
+      
+
+}

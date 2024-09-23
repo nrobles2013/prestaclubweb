@@ -1,0 +1,12 @@
+//
+// Apexchart
+//
+.apexcharts-text {
+  fill: var(--bs-muted);
+}
+
+.apexcharts-gridline,
+.apexcharts-xaxis-tick,
+.apexcharts-xaxis line {
+  stroke: rgba(0, 0, 0, 0.1);
+}

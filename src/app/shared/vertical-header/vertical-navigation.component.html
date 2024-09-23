@@ -1,0 +1,74 @@
+<div class="d-flex align-items-center"> 
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item nav-icon-hover-bg dark rounded-circle d-none d-lg-flex">
+      <a (click)="toggleSidebar.emit()" class="nav-link sidebartoggler position-relative" href="javascript:void(0)">
+        <i-feather class="feather-sm" name="menu"></i-feather>
+      </a>
+    </li>   
+    <ng-template #content let-offcanvas>
+      <div class="offcanvas-header">
+        <a class="navbar-brand" href="/">
+          <!-- Logo text -->
+          @if(themeOptions.theme === 'dark') {
+          <!-- Light Logo text -->
+          <img src="assets/images/logos/light-logo.svg" alt="homepage" />
+          } @else {
+          <!-- dark Logo text -->
+          <img src="assets/images/logos/dark-logo.svg" alt="homepage" />
+          }
+        </a>
+        <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div ngbAccordion [closeOthers]="true">
+          @for (item of items; track item) {
+          <div class="border-0" ngbAccordionItem [collapsed]="item !== 'First'">
+            <h2 ngbAccordionHeader>
+              <button class="shadow-none" ngbAccordionButton>{{ item }}</button>
+            </h2>
+            <div ngbAccordionCollapse>
+              <div ngbAccordionBody>
+                <ng-template>
+                  @for(applink of appLinks; track applink) {
+
+                  <a href="{{ applink.path }}" class="d-flex align-items-center pb-9 position-relative">
+                    <div class="bg-{{
+                            applink.color
+                          }}-subtle rounded-circle round-45 me-3 d-flex align-items-center justify-content-center text-{{
+                            applink.color
+                          }}">
+                      <i-feather name="{{ applink.icon }}" class="feather-sm d-flex"></i-feather>
+                    </div>
+                    <div class="d-inline-block">
+                      <h6 class="mb-0">{{ applink.title }}</h6>
+                      <span class="fs-11 d-block text-muted">{{
+                        applink.subtext
+                        }}</span>
+                    </div>
+                  </a>
+
+                  }
+                </ng-template>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+
+      </div>
+    </ng-template> 
+  </ul> 
+  <div class="nav-tipo-cambio">
+    <div class="moneda-destino">
+      <i class="fas fa-coins"></i> <!-- Icono de moneda -->
+      <span>{{ tipoCambioStore.monedaDestino }}</span>
+    </div>
+    <div class="tipo-cambio">
+      <i class="fas fa-exchange-alt"></i> <!-- Icono de tipo de cambio -->
+      <span>{{ tipoCambioStore.tipoCambio }}</span>
+    </div>
+  </div>
+  
+  
+  <app-profile></app-profile>
+</div>

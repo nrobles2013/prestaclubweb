@@ -1,0 +1,131 @@
+<div class="container mt-4" style="position: relative;">
+  <div class="mx-3" style="position: absolute; right: 0;">
+    <!-- <button type="button" class="btn btn-primary mx-3" >Aprobar</button> -->
+    <!-- <div class="input-group" >
+      <button type="button" class="btn mr-0 btn-outline-secondary">
+        Action
+      </button>
+      <div class="btn-group" role="group"  ngbDropdown>
+        <button type="button" class="
+            btn
+            mr-0
+            btn-outline-secondary
+            dropdown-toggle dropdown-toggle-split
+            rounded-0
+            border-start-0
+          " ngbDropdownToggle>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+          <a class="dropdown-item" ngbDropdownItem href="#">Descargar</a>
+          <a class="dropdown-item" ngbDropdownItem href="#">Aprobar</a> 
+        </div>
+      </div> 
+    </div> -->
+  </div>
+
+  <!-- <button type="button" class="btn btn-primary mx-3" >Descargar</button> -->
+    <!-- Nav Tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <button type="button" class="nav-link" [class.active]="selectedTab === 'liquidacion'" (click)="selectTab('liquidacion')">Liquidación</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="nav-link" [class.active]="selectedTab === 'cronograma'" (click)="selectTab('cronograma')">Cronograma</button>
+      </li>
+      
+    </ul>
+    
+    <!-- Tab Content -->
+    <div class="border-nav-link"></div> 
+      <div class="" style="box-shadow: 0px 0px 15px 0px;">
+        <div class="tab-pane fade show" *ngIf="selectedTab === 'liquidacion'" >
+          <ng-scrollbar class="p-1" style="height: 600px;">
+            <div class="p-2">
+              <div class="row">
+ 
+                <div class="col-2 offset-10 input-group" >
+                  <button type="button" class="btn mr-0 btn-outline-primary">
+                    Descargar
+                  </button>
+                  <div class="btn-group" role="group"  ngbDropdown>
+                    <button type="button" class="
+                        btn
+                        mr-0
+                        btn-outline-primary
+                        dropdown-toggle dropdown-toggle-split
+                        rounded-0
+                        border-start-0
+                      " ngbDropdownToggle>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" ngbDropdownMenu>
+                      <a class="dropdown-item" ngbDropdownItem href="#">PDF</a>
+                      <a class="dropdown-item" ngbDropdownItem href="#">XLS</a> 
+                    </div>
+                  </div> 
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-center">
+                  <h3 class=" w-100">
+                    Liquidación de Costos de Transacción - 9999
+                  </h3> 
+                </div>
+              </div>
+      
+              <app-liquidacion-formulario ></app-liquidacion-formulario>
+      
+              <div class="row p-3">
+                <div class="col-12 d-flex justify-content-end">
+                  <div>
+                    <span>Fecha de Generación : {{fechaGeneracion | date: 'dd/MM/yyyy'}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-scrollbar>
+        </div>
+        <div class="tab-pane fade show" style="height: 100%;" *ngIf="selectedTab === 'cronograma'">
+          <ng-scrollbar class="p-1" style="height: 600px;">
+            <div class="p-2" style="position: relative;height: 600px;"> 
+              <div class="row">
+                <div class="col-12 text-center">
+                  <h3 class=" w-100">
+                    Cronograma de Pagos - 9999
+                  </h3> 
+                </div>
+              </div>
+              <div class="row text-center">
+                <div class="col-2">
+                  <span>Cuota</span>
+                </div>
+                <div class="col-2">
+                  <span>Fecha de Pago</span>
+                </div>
+                <div class="col-2">
+                  <span>Capital</span>
+                </div>
+                <div class="col-2">
+                  <span>Interes</span>
+                </div>
+                <div class="col-2">
+                  <span>Cuota a depositar</span>
+                </div>
+                <div class="col-2">
+                  <span>Saldo adeudado</span>
+                </div>
+              </div>
+              <div class="" style="position: absolute; bottom: 10px;right: 10px;">
+                <div class="col-12 d-flex justify-content-end">
+                  <div>
+                    <span>Fecha de Generación : {{fechaGeneracion | date: 'dd/MM/yyyy'}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-scrollbar> 
+        </div> 
+      </div> 
+  </div>
+  

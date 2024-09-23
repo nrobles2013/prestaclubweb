@@ -1,0 +1,593 @@
+<div class="container">
+  <div class="stepper-wrapper"> 
+    <div class="stepper-header d-flex justify-content-around align-items-center"> 
+      <div class="stepper-step" [class.active]="currentStep >= 1" (click)="goToStep(1)">
+        <div class="step-counter">1</div> 
+      </div> 
+      <div class="stepper-line-wrapper">
+        <div class="stepper-line" [class.completed]="currentStep >= 2" ></div>
+      </div> 
+      <div class="stepper-step" [class.active]="currentStep >= 2" (click)="nextStep()">
+        <div class="step-counter">2</div> 
+      </div> 
+    </div>
+    <div class="stepper-header d-flex justify-content-around align-items-center"> 
+      <div class="stepper-step" [class.active]="currentStep >= 1" (click)="goToStep(1)">
+        <div class="">Liquidación</div> 
+      </div>  
+      <div class="stepper-step" [class.active]="currentStep >= 2">
+        <div class="">Cronograma</div> 
+      </div> 
+    </div>
+    <!-- Primer paso -->
+    <div *ngIf="currentStep === 1" class="step-content mt-4">
+      <div class="container" style="font-size: 10px;">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-between"> 
+            <div>
+              <div class="btn-group my-auto" role="group" aria-label="Basic example">
+                <button 
+                  type="button" 
+                  class="btn btn-outline-primary m-0" 
+                  ngClass="{{viewNroFirmantes ? 'primary-active' : ''}}"
+                  (click)="(viewNroFirmantes = !viewNroFirmantes)"
+                  ngbTooltip="{{viewNroFirmantes ? 'Ocultar campos' : 'Ver campos'}}"
+                  triggers="mouseenter:mouseleave"
+                  >
+                  <i class="fas fa-edit" ></i>
+                </button>
+                <button type="button" class="btn btn-outline-primary m-0">
+                  <i class="mdi mdi-settings" ></i>
+                </button>
+              </div>
+            </div>
+            <div>
+              <img src="assets/images/prueba.svg.png" alt="logo" style="width: 150PX;" />
+            </div>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center" style="background-color: #263575;color: #fff;" > 
+            <span  ><b>ANEXO 1 - LIQUIDACIÓN DE COSTOS DE TRANSACCIÓN {{numOperacion}}</b></span>
+          </div>
+        </div>
+        <div class="row text-end">
+          <span>PREVIA</span>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span><b>CLIENTE</b></span>
+              </div>
+              <div class="col-6">
+                <span>{{operacion.nombre_cliente}}</span>
+              </div>
+              <div class="col-6">
+                <span><b>DOCUMENTO</b></span>
+              </div>
+              <div class="col-6">
+                <span *ngIf="operacion.numero_documento" >{{operacion.tipo_documento}} - {{operacion.numero_documento}}</span>
+                <span *ngIf="!operacion.numero_documento" >-</span>
+              </div>
+              <div class="col-6">
+                <span><b>NRO. DE .OPER.</b></span>
+              </div>
+              <div class="col-6">
+                <span>{{operacion.numero_operacion}}</span>
+              </div>
+              <div class="col-6">
+                <span><b>NRO. DE OPER. ANTERIOR</b></span>
+              </div>
+              <div class="col-6">
+                <span>{{operacion.id_padre??'-'}}</span>
+              </div>
+              <div class="col-6">
+                <span><b>TIPO DE CONTRATO</b></span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.tipo_contrato_id ?? '-'}}</span>
+              </div>
+              <div class="col-6">
+                <span ><b>NRO. DE FIRMANTES</b></span>
+              </div>
+              <div class="col-6">
+                <span *ngIf="!viewNroFirmantes">{{liquidacionCostosTransaccion.nro_firmantes}}</span>
+                <div *ngIf="viewNroFirmantes"> 
+                  <input
+                    type="number" 
+                    [(ngModel)]="liquidacionCostosTransaccion.nro_firmantes"
+                    (blur)="viewNroFirmantes = false"
+                    (keydown.enter)="viewNroFirmantes = false"
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <span><b>NRO. CHEQUES GERENCIA EXTRA</b></span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.nro_cheques_gerencia_extra ?? '-'}}</span>
+              </div>
+              <div class="col-6">
+                <span><b>INVERSIONISTA</b></span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.inversionista_id ?? '-'}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span><b>PRESTAMO NETO</b></span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.prestamo_neto ?? 0 | number:'1.2-2'}}</span>
+              </div>
+              <div class="col-6">
+                <span><b>FINANCIAMIENTO TOTAL</b></span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.financiamiento_total ?? 0 | number:'1.2-2'}}</span>
+              </div>
+              <div class="col-6">
+                <span><b>GRAVAMEN A LEVANTAR</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span><b>MONTO ADEUDADO</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span><b>ADEUDADO AL</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span><b>TIPO DE CAMBIO(PERITAJE)</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span><b>TIPO DE VALORIZACIÓN</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div> 
+              <div class="col-6">
+                <span><b>ASESOR</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row" style="background-color: #f6a01a">
+          <div class="col-6">
+            <span><b>A. TOTAL COSTOS DE TRANSACCIÓN</b></span>
+          </div>
+          <div class="col-6">
+            <span><b>{{tct | number:'1.2-2'}}</b></span>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-12" style="border: 1px solid #263575;">
+            <div class="row">
+              <div class="col-3">
+                <span ><b>CRI / BLOQUEO / PERITAJE </b></span>
+              </div>
+              <div class="col-3">
+                <span><b>{{criBloqueoPeritaje | number:'1.2-2' }}</b></span>
+              </div>
+            </div>
+          </div> 
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span>Certificado Registral de inmobiliario</span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.certificado_registral_inmobiliario ?? 0 | number:'1.2-2' }}</span>
+              </div>
+              <div class="col-6">
+                <span>Bloqueo Registral</span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.bloqueo_registral ?? 0 | number:'1.2-2'}}</span>
+              </div>
+              <div class="col-6">
+                <span>Peritaje</span>
+              </div>
+              <div class="col-6">
+                <span *ngIf="!viewNroFirmantes">{{liquidacionCostosTransaccion.peritaje ?? 0 | number:'1.2-2'}}</span>
+                <div *ngIf="viewNroFirmantes"> 
+                  <input
+                    type="text"
+                    appSoloNumeros 
+                    [allowDots]="true"
+                    [(ngModel)]="liquidacionCostosTransaccion.peritaje"  
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <span>Costo de Inspección</span>
+              </div>
+              <div class="col-6">
+                <span *ngIf="!viewNroFirmantes">{{liquidacionCostosTransaccion.costo_inspeccion ?? 0 | number:'1.2-2'}}</span>
+                <div *ngIf="viewNroFirmantes"> 
+                  <input
+                    type="text"
+                    appSoloNumeros
+                    [allowDots]="true"
+                    [(ngModel)]="liquidacionCostosTransaccion.costo_inspeccion"  
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-12" style="border: 1px solid #263575;">
+            <div class="row">
+              <div class="col-3">
+                <span ><b>PAGOS DESCONTADOS DEL CHEQUE </b></span>
+              </div>
+              <div class="col-3">
+                <span><b>{{pagosDescontadosCheque | number:'1.2-2'}}</b></span>
+              </div>
+            </div>
+          </div> 
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span>Derechos Notariales</span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.derechos_notariales ?? 0 | number:'1.2-2'}}</span>
+              </div>
+              <div class="col-6">
+                <span>Derechos Registrales</span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.derechos_registrales ?? 0 | number:'1.2-2'}}</span>
+              </div>
+              <div class="col-6">
+                <span>Asesoría Prestaclub</span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.asesoria_prestaclub ?? 0 | number:'1.2-2'}}</span>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-12" style="border: 1px solid #263575;">
+            <div class="row">
+              <div class="col-3">
+                <span ><b>COSTOS ADICIONALES </b></span>
+              </div>
+              <div class="col-3">
+                <span><b>{{costosAdicionales | number:'1.2-2'}}</b></span>
+              </div>
+            </div>
+          </div> 
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span>Registrales de levantamiento</span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.registrales_levantamiento ?? 0 | number:'1.2-2'}}</span>
+              </div>
+              <div class="col-6">
+                <span>Toma de firmas con lector biométrico</span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.toma_firmas_biometrico ?? 0 | number:'1.2-2'}}</span>
+              </div>
+              <div class="col-6">
+                <span>Otorgamiento de poder </span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.otorgamiento_poder ?? 0 | number:'1.2-2'}}</span>
+              </div>
+              <div class="col-6">
+                <span>Cheque de gerencia extra</span>
+              </div>
+              <div class="col-6">
+                <span>{{liquidacionCostosTransaccion.cheque_gerencia_extra ?? 0 | number:'1.2-2'}}</span>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <div class="row my-3" style="background-color: #f6a01a">
+          <div class="col-6">
+            <span><b>B. PAGADOS POR EL CLIENTE</b></span>
+          </div>
+          <div class="col-6">
+            <span *ngIf="!viewNroFirmantes"><b>{{liquidacionCostosTransaccion.pagado_cliente ?? 0 | number:'1.2-2'}}</b></span>
+            <div *ngIf="viewNroFirmantes"> 
+              <input
+                type="text"
+                appSoloNumeros
+                [allowDots]="true"
+                [(ngModel)]="liquidacionCostosTransaccion.pagado_cliente"  
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row my-3" style="background-color: #f6a01a">
+          <div class="col-6">
+            <span><b>C. FINANCIADOS POR EL INVERSIONISTA</b></span>
+          </div>
+          <div class="col-6">
+            <span><b>{{ totalCostosTransaccion | number:'1.2-2'}}</b></span>
+          </div>
+        </div>
+        <div class="row" style="background-color: #bfbfbf">
+          <div class="col-12">
+            <span>El cliente, con su firma puesta en este documento, manifiesta expresamente su conformidad 
+              y pleno conocimiento de los conceptos, importes y tipo de cambio que representan, implican, 
+              y, se han usado para el cálculo de los costos de transacción aquí detallados. Asimismo, 
+              en caso de existir algún excedente por concepto de derechos registrales calculados en base 
+              al cobro final consignados en los asientos registrales, el cliente podrá solicitar la devolución
+              de los mismos. 
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <span>A la firma de la escritura pública el inversionista traerá el monto a financiar de la siguiente forma:</span>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-12"  style="border: 1px solid #263575;">
+            <div class="row">
+              <div class="col-4">
+                <span >Traerá un cheque a nombre de PrestaClub SAC por un monto de:</span>
+              </div>
+              <div class="col-8">
+                <span><b>{{totalCostosTransaccion | number:'1.2-2'}}</b></span>
+              </div>
+              <div class="col-12">
+                <span>Con este monto se pagarán los costos de transacción.</span>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <span >(*) Un cheque de gerencia por :</span>
+              </div>
+              <div class="col-8">
+                <span><b>{{liquidacionCostosTransaccion.prestamo_neto ?? 0 | number:'1.2-2'}}</b></span>
+              </div>
+              <div class="col-12">
+                <span>A favor de :</span>
+              </div>
+              <div class="col-4">
+                <span >NOMBRES :</span>
+              </div>
+              <div class="col-8">
+                <span><b>{{operacion.nombre_cliente}}</b></span>
+              </div>
+              <div class="col-4">
+                <span >DNI/RUC :</span>
+              </div>
+              <div class="col-8">
+                <span><b>{{operacion.numero_documento}}</b></span>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <span >(*) Otro cheque de gerencia por :</span>
+              </div>
+              <div class="col-8">
+                <span><b>{{liquidacionCostosTransaccion.monto_adeudado ?? 0 | number:'1.2-2'}}</b></span>
+              </div>
+              <div class="col-12">
+                <span>A favor de :</span>
+              </div>
+              <div class="col-4">
+                <span >NOMBRES :</span>
+              </div>
+              <div class="col-8">
+                <span><b>CDCDCDDC</b></span>
+              </div>
+              <div class="col-4">
+                <span >DNI/RUC :</span>
+              </div>
+              <div class="col-8">
+                <span><b>23456789</b></span>
+              </div>
+            </div>
+          </div>
+          <span style="color: red;">
+            (*)El costo de lo cheques de gerencia es asumido por el inversionista.
+          </span>
+        </div>
+        <div class="row"> 
+          <div class="col-6">
+            <div class="row">
+              
+              <div class="col-12">
+                <span><b>RESUMEN DE LOS DESEMBOLSOS</b></span>
+              </div>
+              <div class="col-12 d-flex justify-content-between">
+                <span>Costos de Transaccion</span>
+                <span>{{totalCostosTransaccion | number:'1.2-2' }}</span>
+              </div>
+              <div class="col-12 d-flex justify-content-between">
+                <span>{{operacion.nombre_cliente}}</span>
+                <span>{{liquidacionCostosTransaccion.prestamo_neto ?? 0 | number:'1.2-2' }}</span>
+              </div>
+              <div class="col-12 d-flex justify-content-between">
+                <span>(nombre de fondo)</span>
+                <span>{{liquidacionCostosTransaccion.monto_adeudado ?? 0 | number:'1.2-2' }}</span>
+              </div>
+              <div class="mt-2" style="border-bottom: 1px solid #263575 ;"></div>
+              <div class="col-12 d-flex justify-content-between">
+                <span>FINANCIAMIENTO TOTAL:</span>
+                <span>{{financiamientoTotal | number:'1.2-2' }}</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary mt-3" (click)="nextStep()" >Siguiente</button>
+    </div>
+
+    <!-- Segundo paso -->
+    <div *ngIf="currentStep === 2" class="step-content mt-4">
+      <div class="container" style="font-size: 10px;">
+        <div class="row">
+          <div class="col-12 text-end" > 
+            <img src="assets/images/prueba.svg.png" alt="logo" style="width: 150PX;" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center" style="background-color: #263575;color: #fff;" > 
+            <span  ><b>ANEXO 2 - CRONOGRAMA DE PAGOS </b></span>
+          </div>
+        </div>
+        <div class="row text-end">
+          <span>PREVIA</span>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span><b>CLIENTE</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span><b>NRO. DE .OPER.</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span><b>NRO. DE OPER. ANTERIOR</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              
+              <div class="col-6">
+                <span><b>ASESOR</b></span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span>Monto neto a recibir</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span>Monto total del financiamiento</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span>Tasa de interes Efectiva Anual</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span>Nro de cuotas a pagar</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span>Fecha de desembolso</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span>Tasa de interes mensual</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span>Tasa de interes moratorio</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span>Total de intereses a pagar</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span>Interes Promedio Anual</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+              <div class="col-6">
+                <span>Como % de la deuda</span>
+              </div>
+              <div class="col-6">
+                <span>xxdxd</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row" style="background-color: #f6a01a">
+          <div class="col-12 d-flex justify-content-around">
+            <span><b>NRO CUOTA</b></span>
+            <span><b>FECHA DE PAGO</b></span>
+            <span><b>CAPITAL</b></span>
+            <span><b>INTERES</b></span>
+            <span><b>CUOTA DEPOSITAR</b></span>
+            <span><b>SALDO</b></span>
+          </div> 
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex justify-content-around" *ngFor="let item of opcionPeriodoPagoMeses;let i = index" >
+            <span>{{i+1}}</span>
+            <span>xdxdxd</span>
+            <span>0,00</span>
+            <span>0,00</span>
+            <span>0,00</span>
+            <span>0,00</span>
+          </div>
+        </div>
+        <button class="btn btn-primary mt-3" (click)="guardarLiquidacion()" >Guardar</button>
+      </div> 
+    </div>
+  </div>
+</div>

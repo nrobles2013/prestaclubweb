@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-12">
+        <!-- You can find this in the dashboard-component -->
+        <app-pa></app-pa>
+    </div>
+</div>
+<!-- Row -->
+<div class="row">
+    <!-- Column -->
+    <div class="col-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-4 border-end">
+                    <div class="card mb-0">
+                        <div class="card-body mailbox">
+                            <h4 class="card-title">Recent Messages</h4>
+                            <ng-scrollbar class="message-center message-body"  style="height: 493px;">
+                                <app-recent-message></app-recent-message>
+                            </ng-scrollbar>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <app-prod-calculation></app-prod-calculation>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>
+<!-- Row -->
+<div class="row">
+    <div class="col-lg-6">
+        <app-members-activity></app-members-activity>
+    </div>
+    <div class="col-lg-6">
+        <app-cs></app-cs>
+    </div>
+</div>
+<!-- Row -->
+<div class="row">
+    <div class="col-lg-4">
+        <app-today-schedule></app-today-schedule>
+    </div>
+    <!-- Column -->
+    <div class="col-lg-8">
+        <app-sales-overview></app-sales-overview>
+    </div>
+    <!-- Column -->
+</div>
+<!-- Row -->
+<app-social-slider></app-social-slider>
+<!-- Row -->
+<div class="row">
+    <div class="col-lg-6">
+        <app-te></app-te>
+    </div>
+    <div class="col-lg-6">
+        <app-feeds></app-feeds>
+    </div>
+</div>

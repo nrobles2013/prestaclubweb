@@ -1,0 +1,290 @@
+<div [ngClass]="{'mode-modal': !usingModal,'my-3': !usingModal}" class="">
+    <div  class="row">
+      <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+        <div class="mb-3">
+            <label class="form-control-label  text-truncate w-100" for="input_gravamen"
+              >Gravamen a levantar</label
+            >
+            <div class="d-flex">
+                <input
+                type="text"
+                class="form-control"
+                id="input_gravamen" 
+                />
+                <label for="" class="m-1 align-self-center">USD</label>
+            </div>
+
+          </div>
+      </div> -->
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+        <div class="mb-3">
+          <label class="form-control-label  text-truncate w-100" for="input_tc"
+            >TC</label
+          >
+          <div class="d-flex">
+              <input
+              type="text"
+              class="form-control"
+              id="input_tc" 
+              /> 
+          </div> 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div>
+            <label class="text-truncate text-weight-bold w-100" for="">TOTAL COSTOS DE TRANSACCIÓN</label>
+          </div>
+          <div>
+            <label class="text-weight-bold" for="">S/ 0.00</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div>
+            <label class="text-truncate text-weight-bold w-100" for="">CRI/BLOQUEO/PERITAJE</label>
+          </div>
+          <div>
+            <label class="text-weight-bold" for="">S/ 0.00</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Certificado Registral inmobiliario</label>
+          </div>
+          <div class=""> 
+                <input
+                type="text"
+                class="form-control"
+                id="input_certificado_registral" 
+                />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Bloqueo Registral</label>
+          </div>
+          <div class=""> 
+                <input
+                type="text"
+                class="form-control"
+                id="input_bloqueo_registral" 
+                />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Peritaje</label>
+          </div>
+          <div class=""> 
+                <input
+                type="text"
+                class="form-control"
+                id="input_peritaje" 
+                />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Costo de inspección</label>
+          </div>
+          <div class=""> 
+                <input
+                type="text"
+                class="form-control"
+                id="input_costo_inspeccion" 
+                />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div>
+            <label class="text-truncate text-weight-bold w-100" for="">PAGOS DESCONTADOS DEL CHEQUE</label>
+          </div>
+          <div>
+            <label class="text-weight-bold" for="">S/ 0.00</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2" >
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Derechos Notariales</label>
+          </div>
+          <div class=""> 
+                <input
+                type="text"
+                class="form-control"
+                id="input_derechos_notariales" 
+                />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2" >
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Derechos Registrales</label>
+          </div>
+          <div class=""> 
+                <input
+                type="text"
+                class="form-control"
+                id="input_derechos_registrales" 
+                />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2" >
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Asesoría PrestaClub</label>
+          </div>
+          <div class=""> 
+                <input
+                type="text"
+                class="form-control"
+                id="input_asesoria_prestaclub" 
+                />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div>
+            <label class="text-truncate text-weight-bold w-100" for="">COSTOS ADICIONALES</label>
+          </div>
+          <div>
+            <label class="text-weight-bold" for="">S/ 0.00</label>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Registrales de levantamiento</label>
+          </div>
+          <div class=""> 
+                <input
+                type="text"
+                class="form-control"
+                id="input_registrales_levantamiento" 
+                />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Toma de firmas con lector biométrico</label>
+          </div>
+          <div class=""> 
+              <input
+              type="text"
+              class="form-control"
+              id="input_toma_firmas" 
+              />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Otorgamiento de Poder</label>
+          </div>
+          <div class=""> 
+              <input
+              type="text"
+              class="form-control"
+              id="input_otorgamiento_poder" 
+              />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">Cheque de Gerencia Extra</label>
+          </div>
+          <div class=""> 
+              <input
+              type="text"
+              class="form-control"
+              id="input_cheque_gerencia" 
+              />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">A. Pagados por el cliente</label>
+          </div>
+          <div class=""> 
+              <input
+              type="text"
+              class="form-control"
+              id="input_pagados_cliente" 
+              />  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <label class="text-truncate w-100" for="">B. Financiamientos por el inversionista</label>
+          </div>
+          <div class=""> 
+              <input
+              type="text"
+              class="form-control"
+              id="input_financiamientos_inversionista" 
+              />  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

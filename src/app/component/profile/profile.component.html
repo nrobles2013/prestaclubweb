@@ -1,0 +1,113 @@
+<ul class="navbar-nav align-items-center gap-10">
+  <li class="nav-item nav-icon-hover-bg dark rounded-circle d-flex" ngbDropdown placement="bottom-end">
+    <a class="nav-link" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <img src="assets/images/users/user1.jpg" alt="user" class="rounded-circle" width="31" />
+    </a>
+    <div class="dropdown-menu-end user-dd dropdown-menu-animate-up" ngbDropdownMenu>
+      <div class="profile-dropdown position-relative">
+        <div class="py-3 px-7 pb-0">
+          <h5 class="mb-0 fs-5">Perfil de Usuario</h5>
+        </div>
+        <div *ngIf="userStore.id" class="d-flex align-items-center py-9 mx-7 border-bottom">
+          <img src="assets/images/users/user1.jpg" class="rounded-circle" width="80" height="80" alt="" />
+          <div class="ms-3">
+            <h5 class="mb-1 fs-4">{{ userStore.empleado.nombre + ' ' + userStore.empleado.apellidoPaterno }}</h5>
+            <span class="mb-1 d-block">{{ userStore.rol }}</span>
+            <p class="mb-0 d-flex align-items-center gap-2">
+              <i-feather name="mail" class="feather-xs d-flex"></i-feather>
+              {{userStore.email }}
+            </p>
+          </div>
+        </div> 
+        <div class="message-body">
+          <div  class="py-8 px-7 mt-8 d-flex align-items-center cursor-pointer" (click)="modalOpenVC(modalCenter)">
+            <span class="d-flex align-items-center justify-content-center bg-warning-subtle rounded p-6 fs-7 text-warning">
+              <i-feather name="lock" class="feather-sm d-flex"></i-feather>
+            </span>
+            <div class="w-75 d-inline-block v-middle ps-3">
+              <h6 class="mb-1 fs-3 lh-base">Cambiar Contraseña</h6>
+              <span class="fs-2 d-block text-body-secondary">Actualiza tu contraseña</span>
+            </div>
+          </div> 
+        </div>
+        
+        <div class="d-grid py-4 px-7 pt-8">
+          <a (click)="logout()" class="btn btn-info">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul> 
+<ng-template #modalCenter let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Cambio de Contraseña
+    </h4>
+    <button type="button" class="btn text-danger btn-close" aria-label="Close"
+      (click)="modal.dismiss('Cross click')">
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row my-2 justify-content-center">
+      <div class="col-12">
+        <form [formGroup]="resetPasswordForm" (ngSubmit)="onSubmit(modal)" class="form-horizontal ">
+          <div class="input-group">
+            <input [type]="newPasswordVisible ? 'text' : 'password'" id="oldPassword"
+              formControlName="oldPassword" class="form-control"
+              placeholder="Ingrese contraseña actual" />
+            <span class="btn btn-outline-secondary" (click)="toggleNewPasswordVisibility()">
+              <i class="mdi" [ngClass]="newPasswordVisible ? 'mdi-eye-off' : 'mdi-eye'"
+                style="font-size: large;"></i>
+            </span>
+          </div>
+          <div class="input-group mt-2">
+            <input [type]="passwordVisible ? 'text' : 'password'" id="newPassword"
+              formControlName="newPassword" class="form-control"
+              placeholder="Ingresa nueva contraseña" />
+            <span class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">
+              <i class="mdi" [ngClass]="passwordVisible ? 'mdi-eye-off' : 'mdi-eye'"
+                style="font-size: large;"></i>
+            </span>
+          </div>
+          <div class="my-2" style="font-weight: 600;">
+            <span>
+              La contraseña debe tener al menos:
+            </span>
+          </div>
+          <div class="d-flex flex-column align-items-strat gap-3">
+            <div class="form-check form-check-inline">
+              <i class="me-2 mdi " [ngClass]="{'mdi-check-circle-outline': resetPasswordForm.get('newPassword')?.errors?.['numero'] ,
+                    'mdi-check-circle text-success': !resetPasswordForm.get('newPassword')?.errors?.['numero']
+                  }"></i>
+              <label class="form-check-label" for="inlineCheckbox1">1 Numero</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <i class="me-2 mdi " [ngClass]="{'mdi-check-circle-outline': resetPasswordForm.get('newPassword')?.errors?.['minuscula'] ,
+                    'mdi-check-circle text-success': !resetPasswordForm.get('newPassword')?.errors?.['minuscula']
+                  }"></i>
+              <label class="form-check-label" for="inlineCheckbox1">1 letra minuscula</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <i class="me-2 mdi " [ngClass]="{'mdi-check-circle-outline': resetPasswordForm.get('newPassword')?.errors?.['mayuscula'] ,
+                    'mdi-check-circle text-success': !resetPasswordForm.get('newPassword')?.errors?.['mayuscula']
+                  }"></i>
+              <label class="form-check-label" for="inlineCheckbox1">1 letra mayuscula</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <i class="me-2 mdi " [ngClass]="{'mdi-check-circle-outline': resetPasswordForm.get('newPassword')?.errors?.['digitos'] ,
+                    'mdi-check-circle text-success': !resetPasswordForm.get('newPassword')?.errors?.['digitos']
+                  }"></i>
+              <label class="form-check-label" for="inlineCheckbox1">8 Caracteres</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn d-block w-100 btn-lg btn-primary" 
+    [disabled]="((resetPasswordForm.get('newPassword')?.errors != null) || (resetPasswordForm.get('oldPassword')?.errors != null))">Restablecer Contraseña</button>
+  </div>
+</ng-template>

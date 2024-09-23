@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex flex-wrap mb-3">
+            <div>
+                <h4 class="card-title">Monthly Earning</h4>
+            </div>
+            <div class="ms-auto">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <h6 class="text-success">
+                            <i class="fa fa-circle fs-1 me-2 "></i>Sales</h6>
+                    </li>
+                    <li class="list-inline-item">
+                        <h6 class="text-info">
+                            <i class="fa fa-circle fs-1 me-2"></i>Earning (k)</h6>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="height:345px;" class="d-flex flex-column">
+            <apx-chart [series]="salesChartOptions.series" [chart]="salesChartOptions.chart"
+                [xaxis]="salesChartOptions.xaxis" [yaxis]="salesChartOptions.yaxis" [grid]="salesChartOptions.grid"
+                [stroke]="salesChartOptions.stroke" [tooltip]="salesChartOptions.tooltip"
+                [dataLabels]="salesChartOptions.dataLabels" [legend]="salesChartOptions.legend"
+                [colors]="salesChartOptions.colors" [markers]="salesChartOptions.markers">
+            </apx-chart>
+        </div>
+    </div>
+</div>

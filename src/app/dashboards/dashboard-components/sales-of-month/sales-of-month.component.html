@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Sales of the Month</h4>
+        <div class="my-4 d-flex flex-column" style="height: 265px;">
+            <apx-chart [series]="SalesmonthChartOptions.series" [chart]="SalesmonthChartOptions.chart"
+                [dataLabels]="SalesmonthChartOptions.dataLabels" [legend]="SalesmonthChartOptions.legends"
+                [colors]="SalesmonthChartOptions.colors" [stroke]="SalesmonthChartOptions.stroke"
+                [labels]="SalesmonthChartOptions.labels" [tooltip]="SalesmonthChartOptions.tooltip"
+                [plotOptions]="SalesmonthChartOptions.plotOptions"></apx-chart>
+        </div>
+        <ul class="list-inline mt-2 text-center pt-1 mb-1">
+            <li class="list-inline-item"><i class="fa fa-circle text-primary"></i> Item A</li>
+            <li class="list-inline-item"><i class="fa fa-circle text-success"></i> Item B</li>
+            <li class="list-inline-item"><i class="fa fa-circle text-info"></i> Item C</li>
+        </ul>
+    </div>
+</div>

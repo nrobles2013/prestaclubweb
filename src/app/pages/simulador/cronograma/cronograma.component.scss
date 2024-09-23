@@ -1,0 +1,32 @@
+.info-content {
+    width: 100%;
+
+    .box {
+        color: var(--bs-primary);
+        background: var(--bs-primary-bg-subtle);
+    }
+}
+
+.input-wrapper {
+    position: relative;
+    border: 2px solid #000;
+    padding: 10px;
+    margin: 20px;
+  }
+  
+  .input-wrapper .input-label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    padding: 0 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  

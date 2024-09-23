@@ -1,0 +1,103 @@
+.stepper-wrapper {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .stepper-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .stepper-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    cursor: pointer; /* Hacemos los círculos clicables */
+  }
+  
+  .step-counter {
+    background-color: #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    font-weight: bold;
+    color: #555;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .step-label {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #999;
+    transition: color 0.3s ease;
+  }
+  
+  .stepper-step.active .step-counter {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .stepper-step.active .step-label {
+    color: #007bff;
+  }
+  
+  .stepper-line-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .stepper-line {
+    background-color: #ddd;
+    height: 4px;
+    width: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .stepper-line.completed {
+    background-color: #007bff;
+  }
+  
+  .step-content {
+    margin-top: 30px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .stepper-header {
+      flex-direction: column;
+    }
+  
+    .stepper-line-wrapper {
+      display: none;
+    }
+  }
+
+  .primary-active{
+    background-color: var(--bs-primary) !important;
+    color: var(--bs-white) !important;
+  } 
+
+  input.ng-valid, input.ng-invalid {
+    border-color: inherit; /* Mantén el borde original */
+    box-shadow: none;      /* Elimina cualquier efecto de sombra generado */
+  }
+  

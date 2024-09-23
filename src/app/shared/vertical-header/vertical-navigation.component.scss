@@ -1,0 +1,58 @@
+.nav-tipo-cambio {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff; /* Fondo blanco para más claridad */
+    padding: 0px 10px;
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más visible */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Cursor para resaltar interactividad */
+  }
+  
+  .nav-tipo-cambio:hover {
+    background-color: #f0f0f5; /* Cambio de fondo al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+  }
+  
+  .moneda-destino {
+    font-weight: 600;
+    color: #495057; /* Color oscuro pero sutil */
+    margin-right: 15px; /* Mayor espacio entre elementos */
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif; /* Tipografía más moderna */
+  }
+  
+  .tipo-cambio {
+    font-size: 1.3em;
+    color: #28a745; /* Color verde para resaltar el tipo de cambio */
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .nav-tipo-cambio i {
+    margin-right: 8px; /* Espacio entre icono y texto */
+    color: #007bff; /* Color del icono */
+  }
+  
+  .nav-tipo-cambio span {
+    padding: 0 8px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-tipo-cambio:hover span {
+    color: #007bff; /* Cambia el color del texto al hacer hover */
+  }
+  
+  @media (max-width: 768px) {
+    .nav-tipo-cambio {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .moneda-destino, .tipo-cambio {
+      margin-bottom: 10px;
+    }
+  }
+  

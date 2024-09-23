@@ -1,0 +1,35 @@
+<div class="card bg-info">
+    <div class="card-body">
+        <div class="d-flex">
+            <div class="me-4 align-self-center">
+                <h1 class="text-white">
+                    <i class="ti-light-bulb"></i>
+                </h1>
+            </div>
+            <div>
+                <h3 class="card-title text-white">Sales Analytics</h3>
+                <h6 class="card-subtitle text-white">March 2024</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 align-self-center">
+                <h2 class="fw-light text-white">
+                    <sup>
+                        <small>
+                            <i class="ti-arrow-up"></i>
+                        </small>
+                    </sup>35487</h2>
+            </div>
+            <div class="col-6 ms-auto d-flex justify-content-end flex-column">
+                <div class="ms-auto d-flex flex-column">
+                    <apx-chart [series]="SalesanalyticsChartOptions.series" [chart]="SalesanalyticsChartOptions.chart"
+                        [dataLabels]="SalesanalyticsChartOptions.dataLabels"
+                        [legend]="SalesanalyticsChartOptions.legends" [colors]="SalesanalyticsChartOptions.colors"
+                        [stroke]="SalesanalyticsChartOptions.stroke" [labels]="SalesanalyticsChartOptions.labels"
+                        [tooltip]="SalesanalyticsChartOptions.tooltip"
+                        [plotOptions]="SalesanalyticsChartOptions.plotOptions"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

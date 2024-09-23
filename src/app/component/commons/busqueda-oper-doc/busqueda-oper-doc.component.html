@@ -1,0 +1,62 @@
+<div class="">
+    <div class="">
+      <div *ngIf="esBusquedaPorOperacion" class="d-flex flex-column">
+        <div *ngIf="!viewClientOperacion" class="col-12 col-sm-12 col-md-6 col-lg-4 form-group">
+          <label for="operacion" class="form-label">Número de Operación</label>
+          <i class="mx-3 mdi mdi-view-grid fs-5" ngbTooltip="Cambiar a búsqueda por documento" (click)="cambiarBusqueda()" ></i> 
+          <div class="input-group">
+            <input
+                type="text"
+                [(ngModel)]="nroOperacion"
+                class="form-control"
+                placeholder="Ejm: 9999"
+            />
+            <button type="button" class="btn btn-primary" (click)="buscarOperacion()">Buscar</button>
+          </div>
+        </div> 
+        <div *ngIf="viewClientOperacion" class="row d-flex justify-content-around ">
+            <span class="btn btn-outline-primary disabled px-2 col-12 col-sm-12 col-md-6 col-lg-4">CLIENTE : 99999999 - Cliente Prueba</span>
+            <span class="btn btn-outline-primary disabled px-2 col-12 col-sm-12 col-md-6 col-lg-4">OPERACION : {{nroOperacion ? nroOperacion : ''}} - NUEVO</span>
+        </div>
+      </div>
+    
+      <div *ngIf="!esBusquedaPorOperacion" class="">  
+        <div *ngIf="!viewClientDocument" class="col-12 col-sm-12 col-md-6 col-lg-4 form-group">
+          <label for="numeroDoc" class="form-label">Número de Documento</label>
+          <i class="mx-3 mdi mdi-view-grid fs-5" ngbTooltip="Cambiar a búsqueda por operación" (click)="cambiarBusqueda()" ></i>
+          <div class="input-group">
+            <select [(ngModel)]="tipoDoc"  class="form-control">
+                <option [selected]="true" value="dni">DNI</option>
+                <option class="text-truncate w-100" value="pasaporte">Pasaporte</option>
+                <option class="text-truncate w-100" value="ce">CE</option>
+              </select>
+            <input
+                type="text" 
+                class="form-control"
+                [(ngModel)]="numeroDoc"
+                placeholder="Ejm: 99999999"
+                style="width: 30%;"
+            />  
+            <button type="button" class="btn btn-primary" (click)="buscarDocumento()">Buscar</button>
+          </div>
+
+        </div>
+        <div *ngIf="viewClientDocument" class="row d-flex justify-content-around ">
+          <span class="btn btn-outline-primary disabled px-2 my-auto col-12 col-sm-12 col-md-6 col-lg-4">CLIENTE : {{numeroDoc ? numeroDoc : ''}} - Cliente Prueba</span>
+          <div *ngIf="!viewClientOperacion" class="col-12 col-sm-12 col-md-6 col-lg-3 form-group"> 
+              <label for="numeroDoc" class="form-label">Número de Operación</label> 
+              <div class="input-group">
+                <select [(ngModel)]="nroOperacion"  class="form-select">
+                  <option [selected]="true" value="9999">9999</option>
+                  <option class="text-truncate w-100" value="98888">98888</option>
+                  <option class="text-truncate w-100" value="9846">9846</option>
+                </select>  
+                <button type="button" class="btn btn-primary" (click)="buscarOperacion()">Buscar</button>
+              </div>
+          </div>
+          <span *ngIf="viewClientOperacion" class="btn btn-outline-primary disabled px-2 col-12 col-sm-12 col-md-6 col-lg-4">OPERACION : {{nroOperacion ? nroOperacion : ''}} - NUEVO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

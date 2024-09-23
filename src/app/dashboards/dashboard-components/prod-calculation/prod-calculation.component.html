@@ -1,0 +1,51 @@
+<div class="card-body">
+    <div class="d-flex align-items-center">
+        <h4>Product Calculation</h4>
+        <div class="ms-auto">
+            <ul class="list-inline float-end">
+                <li class="ps-0 list-inline-item">
+                    <h6 class="text-muted">
+                        <i class="fa fa-circle me-1 text-success"></i>2023</h6>
+                </li>
+                <li class="list-inline-item">
+                    <h6 class="text-muted">
+                        <i class="fa fa-circle me-1 text-info"></i>2024</h6>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div style="height:370px;" class="d-flex flex-column">
+                <apx-chart [series]="productcalcChartOptions.series"
+                    [chart]="productcalcChartOptions.chart" [xaxis]="productcalcChartOptions.xaxis"
+                    [yaxis]="productcalcChartOptions.yaxis" [grid]="productcalcChartOptions.grid"
+                    [stroke]="productcalcChartOptions.stroke"
+                    [tooltip]="productcalcChartOptions.tooltip"
+                    [fill]="productcalcChartOptions.fill"
+                    [dataLabels]="productcalcChartOptions.dataLabels"
+                    [legend]="productcalcChartOptions.legend"
+                    [colors]="productcalcChartOptions.colors"
+                    [markers]="productcalcChartOptions.markers">
+                </apx-chart>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-3 mt-3 text-center">
+            <h3 class="fw-normal">$54578</h3>
+            <h6 class="text-muted">Total Revenue</h6>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3 mt-3 text-center">
+            <h3 class="fw-normal">$43451</h3>
+            <h6 class="text-muted">Online Revenue</h6>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3 mt-3 text-center">
+            <h3 class="fw-normal">$44578</h3>
+            <h6 class="text-muted">Product A</h6>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3 mt-3 text-center">
+            <h3 class="fw-normal">$12578</h3>
+            <h6 class="text-muted">Product B</h6>
+        </div>
+    </div>
+</div>
